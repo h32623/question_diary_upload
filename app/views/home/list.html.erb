@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title lang="ko">차근차근 부트스트랩</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Jeju Gothic', sans-serif;
+    }
+</style>
+</head>
+  <div class="container" style="margin-top: 50px;">
+      
+    <header class="row pb-6">
+      <div class="col-12 col-sm-10">
+        <h1 class="brand mb-4">질문일기</h1>
+      </div>
+    </header>
+
+    <br>
+    <a href="/">오늘의 일기 보기</a>
+    <br><br>
+        <table class="table table-striped">
+            <tr>
+                <td> 번호 </td>
+                <td> 질문 </td>
+                <td> 작성 날짜 </td>
+            </tr>
+            <% @questions.each do |q| %>
+            <tr>
+                <td> <%= q.id %> </td>  
+                <td> <a href="/view/<%= q.id %>"> <%= q.question %> </a> </td>
+                <% q.memos.each do |m| %>
+                <td> <%= m.created_at.to_date %> </td>
+                <% end %>
+            </tr>    
+            
+            <% end %>
+        </table>    
+        
+
+        
+        
+        
+        
+        <br>
+  </div>
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenLite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/CSSPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TimelineLite.min.js"></script>
+  <!-- app -->
+  <script src="app.js"></script>
+</body>
+</html>
